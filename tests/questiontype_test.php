@@ -46,13 +46,15 @@ class qtype_algebra_test extends advanced_testcase {
 
     protected $qtype;
 
-    protected function setUp() {
+    // +++ MBS-HACK (Thomas Ludwig): set void for setUp and tearDown() (MBS-5686)
+    protected function setUp():void {
         $this->qtype = new qtype_algebra();
     }
 
-    protected function tearDown() {
+    protected function tearDown():void {
         $this->qtype = null;
     }
+    /// --- MBS-HACK
 
     protected function get_test_question_data() {
         return test_question_maker::get_question_data('algebra', 'simplemath');
